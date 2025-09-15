@@ -23,7 +23,7 @@
   </style>
 </head>
 <body>
-  New
+  new 2
   <h2>Enter Buy & Sell Rates</h2>
 
   <div class="form-group">
@@ -49,10 +49,14 @@
         return;
       }
 
-      // Send data to bot
-      const data = JSON.stringify({buy_rate: buy, sell_rate: sell});
-      tg.sendData(data);  // This sends data to your bot
-      tg.close();         // Closes the WebApp
+      // Send JSON data to bot
+      tg.sendData(JSON.stringify({ buy_rate: buy, sell_rate: sell }));
+
+      // Optional: Show a confirmation in WebApp
+      alert("✅ Rates submitted successfully!");
+      
+      // Close WebApp
+      tg.close();
     }
   </script>
 </body>
