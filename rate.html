@@ -24,7 +24,7 @@
   </style>
 </head>
 <body>
-  7
+  8
   <h2>Enter Buy & Sell Rates</h2>
 
   <div class="form-group">
@@ -39,12 +39,11 @@
   <button onclick="submitData()">Submit</button>
 
 <script>
-  // Initialize Telegram WebApp
-  const tg = window.Telegram.WebApp;
-  tg.expand();
-
-  // Define submitData in global scope
   function submitData() {
+      // Initialize Telegram WebApp inside the function
+      const tg = window.Telegram.WebApp;
+      tg.expand();
+
       const buy = document.getElementById('buyRate').value;
       const sell = document.getElementById('sellRate').value;
 
@@ -64,3 +63,4 @@
 
 </body>
 </html>
+
