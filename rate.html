@@ -24,7 +24,7 @@
   </style>
 </head>
 <body>
-  Test3
+  Test4
   <h2>Enter Buy & Sell Rates</h2>
 
   <div class="form-group">
@@ -38,23 +38,30 @@
 
   <button onclick="submitData()">Submit</button>
 
-  <script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
     const tg = window.Telegram.WebApp;
-    tg.expand();  // Optional: expands the WebApp to full height
+    tg.expand();
 
-    function submitData() {
-      const buy = document.getElementById('buyRate').value;
-      const sell = document.getElementById('sellRate').value;
+    window.submitData = function() {
+        const buy = document.getElementById('buyRate').value;
+        const sell = document.getElementById('sellRate').value;
 
-      if (!buy || !sell) {
-        alert("Please fill both rates!");
-        return;
-      }
+        if (!buy || !sell) {
+            alert("Please fill both rates!");
+            return;
+        }
 
-      const data = JSON.stringify({ buy_rate: buy, sell_rate: sell });
-      tg.sendData(data);  // Sends data to the bot
-      tg.close();         // Closes the WebApp
+        const data = JSON.stringify({ buy_rate: buy, sell_rate: sell });
+
+        tg.sendData(data);
+        setTimeout(() => tg.close(), 200);
+
+        alert("✅ Rates submitted successfully!");
     }
-  </script>
+});
+</script>
+
 </body>
 </html>
+
