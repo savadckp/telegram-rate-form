@@ -23,7 +23,7 @@
   </style>
 </head>
 <body>
-  test
+  New
   <h2>Enter Buy & Sell Rates</h2>
 
   <div class="form-group">
@@ -44,14 +44,15 @@
       const buy = document.getElementById('buyRate').value;
       const sell = document.getElementById('sellRate').value;
 
-      if(!buy || !sell) {
+      if (!buy || !sell) {
         alert("Please fill both rates!");
         return;
       }
 
+      // Send data to bot
       const data = JSON.stringify({buy_rate: buy, sell_rate: sell});
-      tg.sendData(data);  // Send data to bot
-      tg.close();         // Close the WebApp
+      tg.sendData(data);  // This sends data to your bot
+      tg.close();         // Closes the WebApp
     }
   </script>
 </body>
