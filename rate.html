@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <title>Telegram Buy/Sell Rates Form</title>
   <style>
-    body { font-family: Arial, sans-serif; padding: 20px; }
+    body { font-family: Arial, sans-serif; padding: 20px; background: #f9f9f9; }
     .form-group { margin-bottom: 15px; }
+    label { font-weight: bold; }
     input, button {
       width: 100%;
       padding: 10px;
@@ -23,15 +24,15 @@
   </style>
 </head>
 <body>
-  new 2
+  Test3
   <h2>Enter Buy & Sell Rates</h2>
 
   <div class="form-group">
-    <label>Buy Rate:</label>
+    <label for="buyRate">Buy Rate:</label>
     <input type="number" step="0.0001" id="buyRate" placeholder="Enter Buy Rate">
   </div>
   <div class="form-group">
-    <label>Sell Rate:</label>
+    <label for="sellRate">Sell Rate:</label>
     <input type="number" step="0.0001" id="sellRate" placeholder="Enter Sell Rate">
   </div>
 
@@ -39,6 +40,7 @@
 
   <script>
     const tg = window.Telegram.WebApp;
+    tg.expand();  // Optional: expands the WebApp to full height
 
     function submitData() {
       const buy = document.getElementById('buyRate').value;
@@ -49,14 +51,9 @@
         return;
       }
 
-      // Send JSON data to bot
-      tg.sendData(JSON.stringify({ buy_rate: buy, sell_rate: sell }));
-
-      // Optional: Show a confirmation in WebApp
-      alert("✅ Rates submitted successfully!");
-      
-      // Close WebApp
-      tg.close();
+      const data = JSON.stringify({ buy_rate: buy, sell_rate: sell });
+      tg.sendData(data);  // Sends data to the bot
+      tg.close();         // Closes the WebApp
     }
   </script>
 </body>
