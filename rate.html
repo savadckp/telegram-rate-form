@@ -52,8 +52,10 @@
           alert("Please fill both rates!");
           return;
       }
+      const user = tg.initDataUnsafe.user; // Get Telegram user info
+      const telegramId = user.id;
 
-      const data = JSON.stringify({ buy_rate: buy, sell_rate: sell });
+      const data = JSON.stringify({ buy_rate: buy, sell_rate: sell, telegram_id: telegramId });
 
       tg.sendData(data);                 // Sends data to bot
       setTimeout(() => tg.close(), 200); // Close after short delay
@@ -64,6 +66,7 @@
 
 </body>
 </html>
+
 
 
 
