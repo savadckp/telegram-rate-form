@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const tg = window.Telegram.WebApp;
     tg.expand();
 
+    // Make submitData global so inline onclick can access it
     window.submitData = function() {
         const buy = document.getElementById('buyRate').value;
         const sell = document.getElementById('sellRate').value;
@@ -62,6 +63,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 
+
 </body>
 </html>
+
 
