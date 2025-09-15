@@ -53,7 +53,7 @@
           return;
       }
       const user = tg.initDataUnsafe.user; // Get Telegram user info
-      const telegramId = user.id;
+      const telegramId = user.id || 0;
 
       const data = JSON.stringify({ buy_rate: buy, sell_rate: sell, telegram_id: telegramId });
 
@@ -66,6 +66,7 @@
 
 </body>
 </html>
+
 
 
 
